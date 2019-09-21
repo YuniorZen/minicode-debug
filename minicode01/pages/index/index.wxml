@@ -1,0 +1,55 @@
+<view class="page-limited-time-spike" id="pageLimitedTimeSpike">
+
+    <scroll-view class="header-wrap" scroll-x="{{scrollX}}"  scroll-anchoring="{{true}}">
+      <view class="header-time-list">
+        <view class="time-item" wx:for="{{tileList}}" wx:key="index">
+          <text class="time-text">{{ item }}:00</text>
+          <text class="time-status">即将开始</text>
+        </view>
+      </view>
+    </scroll-view>
+ 
+ 
+  <view class="content">
+   
+    <view class="details-list">
+      <mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
+        <view class="commodity-item">左滑可以删除</view>
+      </mp-slideview>
+    </view>
+   
+    <view class="details-list">
+      <view class="commodity-item"></view>
+    </view>
+    <view class="details-list">
+      <view class="commodity-item"></view>
+    </view>
+    <view class="details-list">
+      <view class="commodity-item"></view>
+    </view>
+    <view class="details-list">
+      <view class="commodity-item"></view>
+    </view>
+    <view class="details-list">
+      <view class="commodity-item"></view>
+    </view>
+    <view class="details-list">
+      <view class="commodity-item"></view>
+    </view>
+    <view class="details-list">
+      <view class="commodity-item"></view>
+    </view>
+    <view class="details-list">
+      <view class="commodity-item"></view>
+    </view>
+    <view class="details-list">
+      <view class="commodity-item"></view>
+    </view>
+    <view class="details-list">
+      <view class="commodity-item"></view>
+    </view>
+    <view class="details-list">
+      <view class="commodity-item"></view>
+    </view>
+  </view>
+</view>

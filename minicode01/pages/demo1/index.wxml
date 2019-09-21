@@ -1,0 +1,7 @@
+<view class="content"> 
+  <view class="title">disableScroll:true <view>取消ios橡皮筋效果-页面无滚动</view></view>
+  <view class="list" >
+    <view class="list-item" wx:for="{{list}}" wx:key="{{index}}">{{item}}</view>
+  </view>  
+</view>
+

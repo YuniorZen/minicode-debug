@@ -1,0 +1,16 @@
+page{
+  background-color: #f1f1f1;
+}
+
+.content{
+
+}
+
+.list .list-item {
+  background-color: #fff;
+  border-top:1rpx solid #f1f1f1;
+  height: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

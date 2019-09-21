@@ -1,0 +1,6 @@
+
+.title{
+  height:120rpx;
+  line-height:60rpx;
+  text-align: center;
+}

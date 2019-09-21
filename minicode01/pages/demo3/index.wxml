@@ -1,0 +1,9 @@
+<view class="content"> 
+  <view class="title">阻止冒泡<view>取消ios橡皮筋效果-页面有滚动</view></view>
+  <scroll-view scroll-y="{{scrollY}}" id="the-id" class="list" bindscrolltoupper="bindscrolltoupper" bindscrolltolower="bindscrolltolower" bindtouchmove="touchmove" bindtouchend="touchend" bindtouchstart="touchstart">
+   <view class="list-item" ></view>
+    <view class="list-item" wx:for="{{list}}" wx:key="{{index}}">{{item}}</view>
+    <view class="list-item" ></view>
+  </scroll-view>  
+</view>
+

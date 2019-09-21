@@ -1,0 +1,74 @@
+/* 微信小程序 scroll-view 元素宽度太大 fixed布局失败 */
+.header-wrap {
+  
+  position: fixed;
+  width:100vw;
+  border-top: 1px solid #EEE;
+  z-index: 100000000000000000;
+  overflow: hidden;
+}
+.header-time-list {
+  display: flex;
+  width: 100%;
+  height: 98rpx;
+  white-space: nowrap;
+}
+.header-time-list .time-item {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 174rpx;
+  height: 98rpx;
+  text-align: center;
+  line-height: 98rpx;
+  background: #F6F6F6;  
+}
+.header-time-list .time-item::after {
+  position: absolute;
+  content: "";
+  width: 2rpx;
+  height: 49rpx;
+  right: 0;
+  top: 24rpx;
+  background: #D4D4D4;
+}
+.header-time-list .time-item:last-child::after {
+  content: none;
+}
+.time-item .time-text,
+.time-item .time-status {
+  position: absolute;
+  width: 174rpx;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.time-item .time-text {
+  top: 32%;
+  font-size: 30rpx;
+}
+.time-item .time-status {
+  font-size: 26rpx;
+  color: #616161;
+  top: 70%;
+}
+.count-down-box {
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 30rpx;
+  background-color: #fff;
+  box-shadow: 0 0 5px #ddd;
+}
+.content {
+  padding-top: 188rpx;
+}
+.details-list{
+  margin-top:20rpx;
+  background-color: #fff;
+}
+.details-list .commodity-item {
+  height: 220rpx;
+}
+
+page{
+  background-color: #f1f1f1;
+}
