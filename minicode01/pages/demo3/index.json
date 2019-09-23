@@ -2,5 +2,6 @@
   "usingComponents": {
     
   },
+  "enablePullDownRefresh":true,
   "backgroundColor":"#f1f1f1"
 }

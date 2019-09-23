@@ -3,13 +3,12 @@ page{
 }
 .list{
   height: calc(100vh - 120rpx);
-  overflow-y: auto;
 }
 
 .list .list-item {
   background-color: #fff;
   border-top:1rpx solid #f1f1f1;
-  height: 120rpx;
+  height: 135rpx;
   display: flex;
   justify-content: center;
   align-items: center;
