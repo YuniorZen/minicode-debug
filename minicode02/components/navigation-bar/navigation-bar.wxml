@@ -1,0 +1,36 @@
+<view class="weui-navigation-bar {{extClass}}">
+  <view class="weui-navigation-bar__placeholder {{ios ? 'ios' : 'android'}}" style="padding-top: {{statusBarHeight}}px;visibility: hidden;"></view>
+  <view class="weui-navigation-bar__inner {{ios ? 'ios' : 'android'}} {{border?'navigation-bar-border':''}}" style="padding-top: {{statusBarHeight}}px; color: {{color}};background:{{background}};{{displayStyle}};{{innerPaddingRight}};{{innerWidth}};">
+
+    <view class='weui-navigation-bar__left' style="{{leftWidth}}">
+      <!-- <block wx:if="{{back}}">
+        <view class="weui-navigation-bar__buttons">
+          <view bindtap="back" class="weui-navigation-bar__button weui-navigation-bar__btn_goback"></view>
+        </view>
+      </block>
+      <block wx:else>
+        <slot name="left"></slot>
+      </block> -->
+      <view class="weui-navigation-bar__buttons" wx:if="{{showBack}}">
+        <view bindtap="goBack" class="weui-navigation-bar__button weui-navigation-bar__btn_goback"></view>
+      </view>
+      <view class="my-home" bindtap="goHome">
+        <image src="/static/icon/icon_home.png"></image>
+      </view>
+    </view>
+
+    <view class='weui-navigation-bar__center'>
+      <view wx:if="{{loading}}" class="weui-navigation-bar__loading"></view>
+      <block wx:if="{{title}}">
+        <text>{{title}}</text>
+      </block>
+      <block wx:else>
+        <slot name="center"></slot>
+      </block>
+    </view>
+
+    <view class='weui-navigation-bar__right'>
+      <slot name="right"></slot>
+    </view>
+  </view>
+</view>

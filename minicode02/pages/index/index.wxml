@@ -1,0 +1,19 @@
+
+<!-- 自定义导航头部 -->
+<navigation-bar title="自定义导航标题" border="{{true}}"></navigation-bar>
+
+<view  class="operate-wraper">
+
+  <button>改变导航背景色</button>
+
+  <button>改变导航背景色</button>
+
+  <button>改变导航背景色</button>
+
+  <button>改变导航背景色</button>
+
+  <button>改变导航背景色</button>
+
+  <button>改变导航背景色</button>
+
+</view>

@@ -1,0 +1,14 @@
+.operate-wraper {
+  height:100vh;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.operate-wraper button{
+  background-color: green;
+  color: #fff;
+  flex:none;
+  width:60%;
+  margin:18rpx auto;
+}
