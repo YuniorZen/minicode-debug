@@ -1,5 +1,5 @@
 .operate-wraper {
-  height:100vh;
+  height:calc(100vh - var(--topBarHeight));
   display: flex;
   align-content: center;
   align-items: center;

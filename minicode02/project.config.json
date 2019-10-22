@@ -15,7 +15,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.8.3",
 	"appid": "wxace962a89f8bf167",
-	"projectname": "minicode01",
+	"projectname": "minicode02",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -38,32 +38,6 @@
 		"game": {
 			"currentL": -1,
 			"list": []
-		},
-		"miniprogram": {
-			"current": 2,
-			"list": [
-				{
-					"id": 0,
-					"name": "disableScroll取消回弹-无滚动区域",
-					"pathName": "pages/demo1/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 1,
-					"name": "disableScroll取消回弹-有滚动区域",
-					"pathName": "pages/demo2/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 2,
-					"name": "scroll-view取消回弹",
-					"pathName": "pages/demo3/index",
-					"query": "",
-					"scene": null
-				}
-			]
 		}
 	}
 }

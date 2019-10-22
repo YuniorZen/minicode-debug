@@ -27,10 +27,6 @@
       <block wx:else>
         <slot name="center"></slot>
       </block>
-    </view>
-
-    <view class='weui-navigation-bar__right'>
-      <slot name="right"></slot>
-    </view>
+    </view>   
   </view>
 </view>

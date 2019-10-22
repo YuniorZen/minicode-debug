@@ -1,10 +1,25 @@
 /**
- * 自定义头部导航组件，基于官方导航组件Navigation开发。
+ * 自定义头部导航组件，基于官方组件Navigation开发。
  * 
- * 组件传参
- * <navigation-bar title="我的优惠券" bindgetBarInfo="getBarInfo"></navigation-bar>
+ * <navigation-bar title="会员中心" bindgetBarInfo="getBarInfo"></navigation-bar>
  * 
+ * 组件属性列表 
+ * bindgetBarInfo {eventhandler}  组件实例载入页面时触发此事件，首参为event对象，event.detail携带当前导航栏信息，如导航栏高度 event.detail.topBarHeight
+ * bindback	      {eventhandler}	点击back按钮触发此事件响应函数
+ * ext-class	    {string}	添加在组件内部结构的class，可用于修改组件内部的样式
+ * title	        {string}	导航标题，如果不提供为空
+ * background	    {string}	导航背景色，默认#ffffff
+ * color	        {string}	导航字体颜色
+ * dbclickBackTop {boolean}	是否开启双击返回顶部功能，默认true
+ * border         {boolean}	是否显示顶部边框，默认false
+ * loading	      {boolean}	是否显示标题左侧的loading，默认false
+ * show	          {boolean}	显示隐藏导航，隐藏的时候navigation的高度占位还在,默认true
+ * left	          {boolean}	左侧区域是否使用slot内容，默认false
+ * center	        {boolean}	中间区域是否使用slot内容，默认false
  * 
+ * Slot Name
+ * left	    左侧slot，在back按钮位置显示，当left属性为true的时候有效
+ * center	  标题slot，在标题位置显示，当center属性为true的时候有效
  * 
 */
 
@@ -174,7 +189,7 @@ Component({
               }); 
 
               _this.triggerEvent('getBarInfo', {topBarHeight,statusBarHeight}); 
-              console.log({ statusBarHeight, topBarHeight}, '================')                     
+              console.log(topBarHeight)                   
             }
         });
 
