@@ -1,0 +1,21 @@
+
+<!-- 自定义导航头部 -->
+<navigation-bar title="{{title}}" border="{{true}}" bindgetBarInfo="getBarInfo"></navigation-bar>
+
+<view  class="operate-wraper" style="--topBarHeight:{{topBarHeight}}px;">
+  <navigator url="/pages/demo2/demo2">demo2</navigator>
+  <!-- <button>改变导航背景色</button>
+
+  <button>改变标题文字</button>
+
+  <button>改变标题颜色</button>
+
+  <button>显示标题左侧的loading</button>
+
+  <button>显示顶部边框</button>
+
+  <button>显示隐藏导航</button>
+
+  <button>双击标题返回顶部</button> -->
+
+</view>

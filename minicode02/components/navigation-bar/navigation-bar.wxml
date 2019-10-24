@@ -1,4 +1,4 @@
-<view class="weui-navigation-bar {{extClass}}">
+<view class="weui-navigation-bar {{extClass}}" bindtouchstart="doubleClick">
   <view class="weui-navigation-bar__placeholder {{ios ? 'ios' : 'android'}}" style="padding-top: {{statusBarHeight}}px;visibility: hidden;"></view>
   <view class="weui-navigation-bar__inner {{ios ? 'ios' : 'android'}} {{border?'navigation-bar-border':''}}" style="padding-top: {{statusBarHeight}}px; color: {{color}};background:{{background}};{{displayStyle}};{{innerPaddingRight}};{{innerWidth}};">
 
@@ -11,11 +11,13 @@
       <block wx:else>
         <slot name="left"></slot>
       </block> -->
-      <view class="weui-navigation-bar__buttons" wx:if="{{showBack}}">
-        <view bindtap="goBack" class="weui-navigation-bar__button weui-navigation-bar__btn_goback"></view>
+     
+      <view class="btn-back nice-focus" bindtap="goBack" wx:if="{{showBack}}">
+        <image src="{{backImage}}"></image>
       </view>
-      <view class="my-home" bindtap="goHome">
-        <image src="/static/icon/icon_home.png"></image>
+     
+      <view class="btn-home nice-focus" bindtap="goHome">
+        <image src="{{homeImage}}"></image>
       </view>
     </view>
 
