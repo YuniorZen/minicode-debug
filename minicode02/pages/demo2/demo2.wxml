@@ -1,19 +1,7 @@
 
+<!-- 自定义导航组件引入 -->
+<navigation-bar title="默认开启双击返回顶部" dbclickBackTop="{{true}}" border="{{true}}"></navigation-bar>
 
-<view  class="operate-wraper" style="--topBarHeight:{{topBarHeight}}px;">
+<view class="list-item" wx:for="{{list}}">{{item}}</view>
 
-  <!-- <button>改变导航背景色</button>
 
-  <button>改变标题文字</button>
-
-  <button>改变标题颜色</button>
-
-  <button>显示标题左侧的loading</button>
-
-  <button>显示顶部边框</button>
-
-  <button>显示隐藏导航</button>
-
-  <button>双击标题返回顶部</button> -->
-
-</view>

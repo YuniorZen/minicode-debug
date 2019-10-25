@@ -20,8 +20,8 @@
  * center	        {boolean}	中间区域是否使用slot内容，默认false
  *  
  * Slot Name
- * left	    左侧slot，在back按钮位置显示，当left属性为true的时候有效
- * center	  标题slot，在标题位置显示，当center属性为true的时候有效
+ * left	          左侧slot，在back按钮位置显示，当left属性为true的时候有效
+ * center	        标题slot，在标题位置显示，当center属性为true的时候有效
  * 
 */
 
@@ -160,14 +160,22 @@ Component({
       value: false
     },
     loading: {
-        type: Boolean,
-        value: false
+      type: Boolean,
+      value: false
     },
     show: {
       type: Boolean,
       value: true,
       observer: '_showChange'
-    },      
+    },  
+    left: {
+      type: Boolean,
+      value: false
+    },
+    center: {
+      type: Boolean,
+      value: false
+    },    
     
   },
   data: {
@@ -175,34 +183,34 @@ Component({
     showBack:false
   },
   attached: function attached() {
-      var _this = this;        
-      //动态计算导航栏尺寸
-      var isSupport = !!wx.getMenuButtonBoundingClientRect;
-      var rect = wx.getMenuButtonBoundingClientRect ? wx.getMenuButtonBoundingClientRect() : null;
-      wx.getSystemInfo({
-          success: function success(res) {
-            var ios = !!(res.system.toLowerCase().search('ios') + 1);
-            var statusBarHeight=res.statusBarHeight;
-            var topBarHeight=ios ? (44 + statusBarHeight) : (48 + statusBarHeight);
+    var _this = this;        
+    //动态计算导航栏尺寸
+    var isSupport = !!wx.getMenuButtonBoundingClientRect;
+    var rect = wx.getMenuButtonBoundingClientRect ? wx.getMenuButtonBoundingClientRect() : null;
+    wx.getSystemInfo({
+        success: function success(res) {
+          var ios = !!(res.system.toLowerCase().search('ios') + 1);
+          var statusBarHeight=res.statusBarHeight;
+          var topBarHeight=ios ? (44 + statusBarHeight) : (48 + statusBarHeight);
 
-            _this.setData({
-                ios: ios,
-                topBarHeight:topBarHeight,
-                statusBarHeight:statusBarHeight,
-                innerWidth: isSupport ? 'width:' + rect.left + 'px' : '',
-                innerPaddingRight: isSupport ? 'padding-right:' + (res.windowWidth - rect.left) + 'px' : '',
-                leftWidth: isSupport ? 'width:' + (res.windowWidth - rect.left) + 'px' : ''
-            }); 
+          _this.setData({
+              ios: ios,
+              topBarHeight:topBarHeight,
+              statusBarHeight:statusBarHeight,
+              innerWidth: isSupport ? 'width:' + rect.left + 'px' : '',
+              innerPaddingRight: isSupport ? 'padding-right:' + (res.windowWidth - rect.left) + 'px' : '',
+              leftWidth: isSupport ? 'width:' + (res.windowWidth - rect.left) + 'px' : ''
+          }); 
 
-            _this.triggerEvent('getBarInfo', {topBarHeight,statusBarHeight});               
-          }
-      });
+          _this.triggerEvent('getBarInfo', {topBarHeight,statusBarHeight});               
+        }
+    });
 
-      //back箭头处理的显示
-      var pages=getCurrentPages()      
-      if(1||pages.length>1){
-        this.setData({showBack:true})
-      }
+    //back箭头处理的显示
+    var pages=getCurrentPages()      
+    if(pages.length>1){
+      this.setData({showBack:true})
+    }
   },
   methods: {
     _showChange: function _showChange(show) {           

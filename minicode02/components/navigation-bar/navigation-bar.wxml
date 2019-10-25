@@ -3,31 +3,27 @@
   <view class="weui-navigation-bar__inner {{ios ? 'ios' : 'android'}} {{border?'navigation-bar-border':''}}" style="padding-top: {{statusBarHeight}}px; color: {{color}};background:{{background}};{{displayStyle}};{{innerPaddingRight}};{{innerWidth}};">
 
     <view class='weui-navigation-bar__left' style="{{leftWidth}}">
-      <!-- <block wx:if="{{back}}">
-        <view class="weui-navigation-bar__buttons">
-          <view bindtap="back" class="weui-navigation-bar__button weui-navigation-bar__btn_goback"></view>
-        </view>
+      <block wx:if="{{left}}">
+        <slot name="left"></slot>
       </block>
       <block wx:else>
-        <slot name="left"></slot>
-      </block> -->
-     
-      <view class="btn-back nice-focus" bindtap="goBack" wx:if="{{showBack}}">
-        <image src="{{backImage}}"></image>
-      </view>
-     
-      <view class="btn-home nice-focus" bindtap="goHome">
-        <image src="{{homeImage}}"></image>
-      </view>
+        <view class="btn-back nice-focus" bindtap="goBack" wx:if="{{showBack}}">
+          <image src="{{backImage}}"></image>
+        </view>      
+        <view class="btn-home nice-focus" bindtap="goHome">
+          <image src="{{homeImage}}"></image>
+        </view>
+      </block>     
     </view>
 
     <view class='weui-navigation-bar__center'>
       <view wx:if="{{loading}}" class="weui-navigation-bar__loading"></view>
-      <block wx:if="{{title}}">
-        <text>{{title}}</text>
+
+      <block wx:if="{{center}}">
+        <slot name="center"></slot>        
       </block>
       <block wx:else>
-        <slot name="center"></slot>
+        <text>{{title}}</text>
       </block>
     </view>   
   </view>

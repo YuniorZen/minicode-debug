@@ -1,0 +1,33 @@
+
+.square{
+  background-color: green;
+  padding:4rpx 20rpx;
+  color: #fff;
+  border-radius:10rpx;
+}
+
+.operate-wraper {
+  height:calc(100vh - var(--topBarHeight));
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.operate-wraper button, .operate-wraper navigator{
+  background-color: green;
+  color: #fff;
+  flex:none;
+  width:60%;
+  margin:18rpx auto;
+  height:80rpx;
+  line-height:80rpx;
+  border-radius:20rpx;
+}
+
+
+.list-item{
+  border:2rpx solid #ccc;
+  line-height:180rpx;
+  text-align: center;
+}

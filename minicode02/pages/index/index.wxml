@@ -1,0 +1,43 @@
+
+<!-- 自定义导航组件引入 -->
+<navigation-bar 
+  bindgetBarInfo="getBarInfo"
+  homeImage="{{homeImage}}"
+  title="{{title}}" 
+  background="{{background}}" 
+  color="{{color}}"
+  show="{{show}}"
+  loading="{{loading}}"
+  border="{{border}}"
+  left="{{left}}" 
+  center="{{center}}">
+    <view slot="left">
+      <view class="square">左侧slot</view>
+    </view>
+    <view slot="center">
+      <view class="square">中间slot</view>
+    </view>
+</navigation-bar>
+
+<!-- 自定义导航组件操作 -->
+<view  class="operate-wraper" style="--topBarHeight:{{topBarHeight}}px;">  
+  
+  <button bindtap="changeBGColor">改变导航背景色</button>
+
+  <button bindtap="changeColor">改变标题文字</button>
+
+  <button bindtap="changeHomeImage">改变home图标</button>
+
+  <button bindtap="changeShow">显示/隐藏导航</button>
+
+  <button bindtap="changeLoading">显示/隐藏 loading</button>
+
+  <button bindtap="changeBorder">显示/隐藏导航边框</button> 
+
+  <button bindtap="showLeftSlot">显示/隐藏左侧slot</button> 
+
+  <button bindtap="showCenterSlot">显示/隐藏中间slot</button> 
+ 
+  <navigator url="/pages/demo2/demo2">双击返回顶部</navigator>
+
+</view>
