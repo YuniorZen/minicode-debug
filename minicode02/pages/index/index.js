@@ -64,6 +64,10 @@ Page({
   //中间自定义slot
   showCenterSlot() {
     this.setData({ center: !this.data.center })
+  },
+  //下拉刷新测试
+  onPullDownRefresh(){
+    setTimeout(wx.stopPullDownRefresh,1000)
   }
 
 })
