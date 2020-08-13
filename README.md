@@ -5,7 +5,7 @@
 ## 源码目录说明
 
 **svg-layout-autolike**    
-触发公众号文章点赞的svg布局玩法   
+触发公众号文章点赞的svg布局玩法   
 参考知识点：[超级强大的SVG SMIL animation动画详解](https://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/comment-page-2/)
 
 
