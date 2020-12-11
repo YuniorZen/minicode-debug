@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "navigation-bar-simple":"/components/navigation-bar-simple/navigation-bar"
+  },
+  "navigationStyle": "custom",
+  "enablePullDownRefresh":true
+}

@@ -6,7 +6,8 @@ page{--height:44px;--right:190rpx;}
 
 .weui-navigation-bar__inner{
   position:fixed;top:0;left:0;z-index:5001;height:var(--height);display:flex;align-items:center;
-  padding-right:var(--right);width:calc(100% - var(--right))
+  padding-right:var(--right);width:calc(100% - var(--right));
+  box-sizing: content-box;
 }
 .weui-navigation-bar__inner.navigation-bar-border{border-bottom:2rpx solid #ddd;}
 

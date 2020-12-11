@@ -1,0 +1,18 @@
+
+<!-- 自定义导航组件引入 -->
+<navigation-bar-simple 
+  bindgetBarInfo="getBarInfo"
+  show="{{show}}">
+    <view slot="left">
+      <image  class="btn-home" src="{{homeImage}}"></image>
+    </view>
+    <view slot="center">
+      navigation-bar
+    </view>
+</navigation-bar-simple>
+
+<!-- 自定义导航组件操作 -->
+<view  class="operate-wraper" style="--topBarHeight:{{topBarHeight}}px;">  
+  <button bindtap="changeShow">显示/隐藏导航</button>
+  <navigator url="/pages/demo2/demo2">双击返回顶部</navigator>
+</view>

@@ -1,0 +1,33 @@
+.weui-navigation-bar{overflow:hidden}
+.weui-navigation-bar__placeholder{
+  position:relative;
+  box-sizing: content-box;
+}
+
+.weui-navigation-bar__inner{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:10000;
+  display:flex;
+  align-items:center;
+  box-sizing: border-box;
+  width:100%;
+}
+
+.weui-navigation-bar__inner .weui-navigation-bar__left{
+  position:relative;
+  height:100%;
+  box-sizing: border-box;
+  display:flex;
+  align-items:center;
+  flex: none;
+}
+.weui-navigation-bar__inner .weui-navigation-bar__center{
+  position:relative;
+  height:100%;
+  flex:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}

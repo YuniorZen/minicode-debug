@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/demo-navigation-bar-simple/index",
     "pages/demo2/demo2"
   ],
   "window": {

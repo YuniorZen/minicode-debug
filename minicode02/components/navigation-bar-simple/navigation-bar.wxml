@@ -1,0 +1,21 @@
+<view 
+class="weui-navigation-bar {{extClass}}" 
+bindtouchstart="doubleClick">
+  <view 
+  class="weui-navigation-bar__placeholder" 
+  style="padding-top:{{menuButtonTop}}px;padding-bottom:{{menuButtonTop}}px;height:{{menuButtonHeight}}px;visibility: hidden;"></view>
+
+  <view 
+  class="weui-navigation-bar__inner" 
+  style="padding-top: {{menuButtonTop}}px;padding-bottom:{{menuButtonTop}}px;padding-right:{{innerRight}}px;padding-left:{{menuButtonRight+2}}px;height:{{menuButtonHeight+(menuButtonTop*2)}}px;{{displayStyle}};">
+    <view 
+    class="weui-navigation-bar__left"
+    style="width:{{menuButtonWidth}}px;">
+      <slot name="left"></slot>     
+    </view>
+
+    <view class='weui-navigation-bar__center'>
+      <slot name="center"></slot>
+    </view>   
+  </view>
+</view>
