@@ -53,30 +53,41 @@ Component({
     var _this=this     
     wx.getSystemInfo({
       success: function success(res) {
+        // 窗口宽度
+        var windowWidth=res.windowWidth;
         //获取菜单按钮（右上角胶囊按钮）的布局位置信息
         var rect = wx.getMenuButtonBoundingClientRect();
-        console.log(rect,res)
-        var statusBarHeight=res.statusBarHeight
-        var gap=rect.top-statusBarHeight
+        // 状态栏高度
+        var statusBarHeight=res.statusBarHeight;
+        // 胶囊距离状态栏
+        var gap=rect.top-statusBarHeight;
         // 导航栏高度，+2的容错高度
         var innerHeight=statusBarHeight+gap*2+rect.height+2;
+        // 导航栏右边距
+        var innerRight=windowWidth-rect.left;
+        // 胶囊距离右侧
+        var menuButtonRight=windowWidth-rect.right;
+        // 胶囊宽度
+        var menuButtonWidth=rect.width;
+
         _this.setData({
-          // 状态栏高度
           statusBarHeight,
-          // 胶囊距离状态栏
           gap,
-          // 胶囊距离右侧
-          menuButtonRight:res.windowWidth-rect.right,
-          // 胶囊宽度
-          menuButtonWidth:rect.width,
-          // 导航栏右边距
-          innerRight:res.windowWidth-rect.left,
-          // 导航栏高度
+          menuButtonRight,
+          menuButtonWidth,
+          innerRight,
           innerHeight
         }); 
 
         // 触发getBarInfo事件，告知导航栏信息
-        _this.triggerEvent('getBarInfo', {height:innerHeight})
+        _this.triggerEvent('getBarInfo', {
+          height:innerHeight,
+          windowWidth,
+          menuButtonRight,
+          menuButtonWidth,
+          gap,
+          statusBarHeight
+        })
       }
     })
   },

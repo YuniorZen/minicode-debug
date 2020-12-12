@@ -7,7 +7,7 @@ bindtouchstart="doubleClick">
 
   <view 
   class="weui-navigation-bar__inner" 
-  style="padding-top:{{statusBarHeight}}px;padding-right:{{innerRight}}px;padding-left:{{menuButtonRight+2}}px;height:{{innerHeight}}px;{{displayStyle}};">
+  style="padding-top:{{statusBarHeight}}px;padding-right:{{innerRight}}px;padding-left:{{menuButtonRight}}px;height:{{innerHeight}}px;{{displayStyle}};">
     <view 
     class="weui-navigation-bar__left"
     style="width:{{menuButtonWidth}}px;">
