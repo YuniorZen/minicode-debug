@@ -1,7 +1,7 @@
 .weui-navigation-bar{overflow:hidden}
 .weui-navigation-bar__placeholder{
   position:relative;
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 .weui-navigation-bar__inner{

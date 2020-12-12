@@ -3,11 +3,11 @@ class="weui-navigation-bar {{extClass}}"
 bindtouchstart="doubleClick">
   <view 
   class="weui-navigation-bar__placeholder" 
-  style="padding-top:{{menuButtonTop}}px;padding-bottom:{{menuButtonTop}}px;height:{{menuButtonHeight}}px;visibility: hidden;"></view>
+  style="height:{{innerHeight}}px;visibility: hidden;"></view>
 
   <view 
   class="weui-navigation-bar__inner" 
-  style="padding-top: {{menuButtonTop}}px;padding-bottom:{{menuButtonTop}}px;padding-right:{{innerRight}}px;padding-left:{{menuButtonRight+2}}px;height:{{menuButtonHeight+(menuButtonTop*2)}}px;{{displayStyle}};">
+  style="padding-top:{{statusBarHeight}}px;padding-right:{{innerRight}}px;padding-left:{{menuButtonRight+2}}px;height:{{innerHeight}}px;{{displayStyle}};">
     <view 
     class="weui-navigation-bar__left"
     style="width:{{menuButtonWidth}}px;">
