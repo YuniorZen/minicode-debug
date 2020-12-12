@@ -1,6 +1,7 @@
 
 <!-- 自定义导航组件引入 -->
 <navigation-bar-simple 
+  extClass="my-navigation"
   bindgetBarInfo="getBarInfo"
   show="{{show}}">
     <view slot="left">
