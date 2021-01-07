@@ -1,0 +1,224 @@
+<html>
+
+<head>
+    <title>打开小程序</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <!-- weui 样式 -->
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.4.1/weui.min.css"></link>
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .full {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .public-web-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .public-web-container p {
+            position: absolute;
+            top: 40%;
+        }
+
+        .public-web-container a {
+            position: absolute;
+            bottom: 40%;
+        }
+
+        .wechat-web-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .wechat-web-container p {
+            position: absolute;
+            top: 40%;
+        }
+
+        .wechat-web-container wx-open-launch-weapp {
+            position: absolute;
+            bottom: 40%;
+            left: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .desktop-web-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content:center;
+        }
+
+        .desktop-web-container p {
+           margin-top:30px;
+        }
+    </style>
+    <!-- 公众号 JSSDK -->
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <!-- 生成二维码 -->
+    <script src="https://focusnow-0ggaco3y828a369d-1253255428.tcloudbaseapp.com/statics/qrcode.min.js"></script> 
+</head>
+
+<body>
+    <div class="page full">
+        <!-- 外部手机浏览器页面 -->
+        <div id="public-web-container" class="hidden">
+            <p id="public-web-jump-button-loading-text" class="">正在打开 “专心时刻”...</p>
+            <a id="public-web-jump-button" href="javascript:" class="weui-btn weui-btn_primary weui-btn_loading"
+                onclick="openWeapp()">
+                <span id="public-web-jump-button-loading-icon" class="weui-primary-loading weui-primary-loading_transparent">
+                    <i class="weui-primary-loading__dot"></i>
+                </span>
+                打开小程序
+            </a>
+        </div>
+        <!-- 微信手机浏览器页面 -->
+        <div id="wechat-web-container" class="hidden">
+            <p class="">点击以下按钮打开 “专心时刻”</p>
+            <wx-open-launch-weapp id="launch-btn" username="gh_261a0fa4c000" path="/pages/index/index?from=tag">
+                <template>
+                    <style>
+                        button {
+                            width: 200px;
+                            height: 45px;
+                            text-align: center;
+                            font-size: 17px;
+                            display: block;
+                            margin: 0 auto;
+                            padding: 8px 24px;
+                            border: none;
+                            border-radius: 4px;
+                            background-color: #07c160;
+                            color: #fff;
+                        }
+                    </style>
+                    <button>打开小程序</button>
+                </template>
+            </wx-open-launch-weapp>
+        </div>
+        <!-- PC浏览器页面 -->
+        <div id="desktop-web-container" class="hidden">
+            <div id="qrcode"></div>
+            <p class="">请在手机打开网页链接</p>
+        </div>
+    </div>
+
+    <script>
+        /*
+            微信版本要求为：7.0.12及以上。 系统版本要求为：iOS 10.3及以上、Android 5.0及以上。
+            参考文档
+            https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_Open_Tag.html#%E5%BC%80%E6%94%BE%E6%A0%87%E7%AD%BE%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3
+            https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/staticstorage/jump-miniprogram.html
+
+        */
+        // 获取URLScheme，这里是固定死的，你需要后端开发人员为你准备个接口或云函数返回URLScheme
+        const getURLScheme=(path,query)=>{
+            return new Promise((resolve,reject)=>{
+                setTimeout(() => {
+                    resolve("weixin://dl/business/?ticket=l259dfcade2d3996caf26803cf90b0dfe")
+                }, 1000);
+            })
+        }
+        // 外部手机浏览器打开URL Scheme，一般会有提示，接受打开即可
+        const openWeapp = async (onBeforeJump) => {
+            //获取url scheme
+            const openlink = await getURLScheme()
+            
+            if (onBeforeJump) {
+                onBeforeJump()
+            }
+            location.href = openlink
+        }
+        // 使用开放标签打开小程序时调用，注入wx.config的配置信息,使用小程序云开发静态网站托管的网页可以绕过鉴权，公众号需要后端接口配合返回鉴权参数
+        const getWXConfig=async()=>{
+            const config={
+                appId: 'wx8a3858382f37bce0', // 已认证的小程序appid或已认证的服务号appid
+                timestamp: 0, // 必填，使用小程序云开发静态网站托管的网页填任意数字即可,无须鉴权
+                nonceStr: 'nonceStr', // 必填，使用小程序云开发静态网站托管的网页填任意非空字符串即可,无须鉴权
+                signature: 'signature', // 必填，使用小程序云开发静态网站托管的网页填任意非空字符串即可,无须鉴权
+            }
+    
+            return config
+        }
+        const start =async () => {
+            const ua = navigator.userAgent.toLowerCase()
+            // 企业微信
+            const isWXWork = ua.match(/wxwork/i) == 'wxwork'
+            // 微信浏览器
+            const isWeixin = !isWXWork && ua.match(/MicroMessenger/i) == 'micromessenger'
+            let isMobile = false
+            let isDesktop = false
+            if (navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|IEMobile)/i)) {
+                isMobile = true
+            } else {
+                isDesktop = true
+            }
+    
+            if (isDesktop) {
+                // 在 pc 上则给提示引导到手机端打开
+                const containerEl = document.getElementById('desktop-web-container')
+                containerEl.classList.remove('hidden')
+                containerEl.classList.add('full', 'desktop-web-container')
+                // 生成当前页面二维码
+                new QRCode('qrcode', {
+                    text: document.URL,
+                    width: 200,
+                    height: 200,
+                    colorDark: '#000000',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            } else if (isWeixin) {
+                //如果微信浏览器，通过开放标签打开小程序
+                const containerEl = document.getElementById('wechat-web-container')
+                containerEl.classList.remove('hidden')
+                containerEl.classList.add('full', 'wechat-web-container')
+
+                const launchBtn=document.getElementById('launch-btn')
+                launchBtn.addEventListener('error', function (e) {
+                    console.log('用户拒绝跳转或跳转异常', e.detail)
+                })
+                const config=await getWXConfig()
+                wx.config({
+                    ...config,
+                    jsApiList: ['chooseImage'], // 安卓上必填一个，随机即可
+                    openTagList: ['wx-open-launch-weapp'], // 填入打开小程序的开放标签名
+                })
+            } else {
+                // 在非微信的外部手机浏览器使用URLScheme打开小程序
+                const containerEl = document.getElementById('public-web-container')
+                containerEl.classList.remove('hidden')
+                containerEl.classList.add('full', 'public-web-container')
+                
+                const buttonEl = document.getElementById('public-web-jump-button')
+                const buttonLoadingIcon = document.getElementById('public-web-jump-button-loading-icon')
+                const buttonLoadingText = document.getElementById('public-web-jump-button-loading-text')
+                try {
+                    // 自动执行，打开URLScheme
+                    await openWeapp(() => {
+                        buttonEl.classList.remove('weui-btn_loading')
+                        buttonLoadingIcon.classList.add('hidden')
+                        buttonLoadingText.classList.add('hidden')
+                    })
+                } catch (e) {}
+            }
+        }
+        start()
+    </script>
+</body>
+
+</html>
