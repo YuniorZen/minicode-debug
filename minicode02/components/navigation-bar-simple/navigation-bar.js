@@ -19,6 +19,7 @@
  * extClass	      {string}	添加在组件上的class，可用于自定义修改组件内部的样式
  * dbclickBackTop {boolean}	是否开启双击返回顶部功能，默认true
  * show	          {boolean}	显示隐藏导航，隐藏的时候navigation的高度占位还在,默认true
+ * landscape      {boolean} 是否是横屏，横屏时实际没有状态栏高度，但计算得到的结果确实有，需要特殊处理
  *  
  * 内部插槽名称
  * left	          导航左侧slot名称
@@ -44,6 +45,10 @@ Component({
       type: Boolean,
       value: true,
       observer: '_showChange'
+    },
+    landscape:{
+      type:Boolean,
+      value:false
     }
   },
   data: {
@@ -57,8 +62,8 @@ Component({
         var windowWidth=res.windowWidth;
         //获取菜单按钮（右上角胶囊按钮）的布局位置信息
         var rect = wx.getMenuButtonBoundingClientRect();
-        // 状态栏高度
-        var statusBarHeight=res.statusBarHeight;
+        // 状态栏高度 #横屏时实际没有状态栏高度，无须计算
+        var statusBarHeight=_this.properties.landscape? 0:res.statusBarHeight;
         // 胶囊距离状态栏
         var gap=rect.top-statusBarHeight;
         // 导航栏高度，+2的容错高度
@@ -78,6 +83,9 @@ Component({
           innerRight,
           innerHeight
         }); 
+
+
+        console.log(statusBarHeight,rect.top)
 
         // 触发getBarInfo事件，告知导航栏信息
         _this.triggerEvent('getBarInfo', {
@@ -101,7 +109,7 @@ Component({
     },
     //双击返回顶部
     doubleClick(e) {
-      if (!this.data.dbclickBackTop){return}
+      if (!this.properties.dbclickBackTop){return}
       if (this.timeStamp && (e.timeStamp - this.timeStamp < 300)) {
         this.timeStamp = 0
         wx.pageScrollTo({
