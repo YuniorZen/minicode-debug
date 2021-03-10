@@ -6,6 +6,8 @@
 
 ## 源码目录说明
 
+**add-tip**   
+[添加到我的小程序引导组件](https://developers.weixin.qq.com/community/develop/article/doc/000c8aa5ca81f8d929db82e6158c13)
 
 **jump.html**    
 [静态网站H5跳小程序](https://developers.weixin.qq.com/community/develop/article/doc/000c4af4d70330ce498b5149a53413)     
@@ -23,5 +25,5 @@
 
 
 **minicode01**    
-[小程序取消下拉橡皮筋回弹效果解决方案及坑总结（持续更新）](https://developers.weixin.qq.com/community/develop/article/doc/000c4e2e3446e8243739e441051013)
+[小程序取消下拉橡皮筋回弹效果解决方案及坑总结](https://developers.weixin.qq.com/community/develop/article/doc/000c4e2e3446e8243739e441051013)
 
