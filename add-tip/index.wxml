@@ -1,0 +1,9 @@
+<view wx:if="{{showTip}}" class="tip-wraper">
+  <image class="tip-gif" 
+  mode="widthFix" 
+  src="./images/add_tip.gif"></image>
+  
+  <image bindtap="closeTip"
+  class="tip-close" 
+  src='./images/close.png'></image>
+</view>
